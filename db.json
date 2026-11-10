@@ -1,0 +1,31 @@
+{
+  "carts": [
+    {
+      "id": 1,
+      "products": [
+        {
+          "title": "Blue Frock",
+          "price": 29.99,
+          "quantity": 4
+        },
+        {
+          "title": "Black Jacket",
+          "price": 49.99,
+          "quantity": 2
+        }
+      ],
+      "total": 219.94
+    },
+    {
+      "id": 2,
+      "products": [
+        {
+          "title": "White T-Shirt",
+          "price": 19.99,
+          "quantity": 3
+        }
+      ],
+      "total": 59.97
+    }
+  ]
+}

@@ -26,7 +26,7 @@ async function loadCart(cartId, isFirstAttempt, testFailMode) {
 
   try {
     // Симуляція відкладеної відповіді сервера (3 секунди)
-    const response = await fetch(`https://dummyjson.com/carts/${cartId}?delay=3000`, {
+    const response = await fetch(`/carts/${cartId}?delay=3000`, {
       signal: controller.signal
     });
 
@@ -99,12 +99,13 @@ function renderCart(cart) {
 
   cart.products.forEach(product => {
     const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${product.title}</td>
-      <td>$${product.price}</td>
-      <td>${product.quantity}</td>
-      <td>$${product.total}</td>
-    `;
+    const productTotal = product.total ?? product.price * product.quantity;
+    [product.title, `$${product.price}`, product.quantity, `$${productTotal}`]
+      .forEach(value => {
+        const cell = document.createElement('td');
+        cell.textContent = value;
+        row.appendChild(cell);
+      });
     productsBody.appendChild(row);
   });
 
